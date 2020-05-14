@@ -7,7 +7,7 @@ public interface DaoContract <T>{
 	List<T> getAllLists();
 	void createGroceryList(T t);
 	void addItemToList(T t);
-	void removeItemFromList(String item);
+	void removeItemFromList(int item);
 	void removeGroceryList(T t);
 
 }

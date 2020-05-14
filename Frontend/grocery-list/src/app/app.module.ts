@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GrocerylistComponent } from './grocerylist/grocerylist.component';
+import { GroceryListComponent } from './component/grocery-list/grocery-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GrocerylistComponent
+    GrocerylistComponent,
+    GroceryListComponent
   ],
   imports: [
     BrowserModule

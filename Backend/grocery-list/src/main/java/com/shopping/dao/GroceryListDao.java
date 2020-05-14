@@ -40,7 +40,7 @@ public class GroceryListDao implements DaoContract <GroceryList> {
 	}
 	
 	@Override
-	public void removeItemFromList(String item) {
+	public void removeItemFromList(int item) {
 		sesfact.getCurrentSession().delete(item);
 	}
 	

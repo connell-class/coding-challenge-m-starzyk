@@ -21,15 +21,17 @@ public class GroceryListService {
 		return dc.getAllLists();
 	}
 	
-	public void createGroceryList(GroceryList gl) {
+	public GroceryList createGroceryList(GroceryList gl) {
 		dc.createGroceryList(gl);
+		return gl;
 	}
 	
-	public void addItemToList(GroceryList gl) {
+	public GroceryList addItemToList(GroceryList gl) {
 		dc.addItemToList(gl);
+		return gl;
 	}
 	
-	public void removeItemFromList(String item) {
+	public void removeItemFromList(int item) {
 		dc.removeItemFromList(item);;
 	}
 	
