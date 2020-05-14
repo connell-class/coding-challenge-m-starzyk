@@ -31,4 +31,8 @@ export class GroceryListComponent implements OnInit {
     return this.groceryService.deleteGroceryList(id);
   }
 
+  addItemToList(){
+    return this.groceryService.addItemToList();
+  }
+
 }
