@@ -1,5 +1,8 @@
-<p>grocery-lists works!</p>
-<!-- <tr *ngFor="let int of glist">
-  <td><a (click)="getFriendProfile(int.id)"> {{int.name}}</a> </td>
-
-</tr> -->
+<p>All Grocery Lists</p>
+<tr *ngFor="let int of glist">
+  <td><a (click)="getTheList(int.id)"> {{int.name}} </a> </td>
+  <td>  <div (click)="deleteGroceryList(int.id)" style="display: inline;">
+    <img id="deleteButton" type="button" src="https://3vfjs6e58tj3yfef2wptam15-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/red-x-on-network-icon-600x526.png" alt="delete button" />
+  </div></td>
+</tr>
+<app-grocery-list></app-grocery-list>

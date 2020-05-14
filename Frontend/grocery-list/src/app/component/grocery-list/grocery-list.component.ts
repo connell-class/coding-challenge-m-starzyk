@@ -20,7 +20,7 @@ export class GroceryListComponent implements OnInit {
 
   getTheList(){
     return this.groceryService
-    .getGroceryLists()
+    .getGroceryItems()
     .then((response) => this.populateTable(response));
   }
 
@@ -28,10 +28,6 @@ export class GroceryListComponent implements OnInit {
     for (let i = 0; i < response.length; i++) {
       this.glist.push(response[i]);
     }
-  }
-
-  deleteGroceryList(id) {
-    return this.groceryService.deleteGroceryList(id);
   }
 
   addItemToList(id){
