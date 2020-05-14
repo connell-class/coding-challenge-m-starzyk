@@ -7,7 +7,7 @@
 	 ">
 	 
 	 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	 	<property name="prefix" value="Grocery/"/>
-	 	<property name="suffix" value=".grocery"/>
+	 	<!-- <property name="prefix" value="Grocery/"/>
+	 	<property name="suffix" value=".grocery"/> -->
 	 </bean>
 </beans>
