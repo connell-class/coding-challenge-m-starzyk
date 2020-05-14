@@ -26,4 +26,9 @@ export class GroceryListComponent implements OnInit {
       this.glist.push(response[i]);
     }
   }
+
+  deleteGroceryList(id) {
+    return this.groceryService.deleteGroceryList(id);
+  }
+
 }
