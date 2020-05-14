@@ -8,4 +8,5 @@ export class Groceries {
   type: string;
 
   listId: number;
+
 }

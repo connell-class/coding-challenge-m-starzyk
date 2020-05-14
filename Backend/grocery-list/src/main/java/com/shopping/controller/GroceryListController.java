@@ -23,25 +23,25 @@ public class GroceryListController {
 	@Autowired
 	private GroceryListService gs;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/grocery-lists")
+	@RequestMapping(method = RequestMethod.GET, value = "/grocery-lists.grocery")
 	public @ResponseBody List<GroceryList> findAll(){
 		return gs.getAllGroceryLists();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/grocery-lists")
+	@RequestMapping(method = RequestMethod.POST, value = "/grocery-lists.grocery")
 	public ResponseEntity<GroceryList> save(@RequestBody GroceryList gl){
 		return new ResponseEntity<GroceryList>(gs.createGroceryList(gl), HttpStatus.OK);
 	}
-	@RequestMapping(method = RequestMethod.POST, value = "/grocery-lists/items")
+	@RequestMapping(method = RequestMethod.POST, value = "/grocery-lists/items.grocery")
 	public ResponseEntity<GroceryList> update(@RequestBody GroceryList gl){
 		return new ResponseEntity<GroceryList>(gs.addItemToList(gl), HttpStatus.OK);
 	}
-	@RequestMapping(method = RequestMethod.DELETE, value = "/grocery-lists/items/{itemId}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/grocery-lists/items/{itemId}.grocery")
 	public ResponseEntity<String> deleteItem(@PathVariable("id") int id){
 		gs.removeItemFromList(id);
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
-	@RequestMapping(method = RequestMethod.DELETE, value = "/grocery-lists")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/grocery-lists.grocery")
 	public ResponseEntity<String> deleteList(GroceryList gl){
 		gs.removeGroceryList(gl);
 		return new ResponseEntity<String>("deleted",HttpStatus.OK);
