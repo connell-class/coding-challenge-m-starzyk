@@ -24,11 +24,11 @@ public class GroceryListDao implements DaoContract <GroceryList> {
 		sesfact = sse;
 	}
 	
-	
 	@Override
 	public List<GroceryList> getAllLists(){
 		return sesfact.openSession().createQuery("from GroceryList", GroceryList.class).list();
 	}
+	
 	@Override
 	public void createGroceryList(GroceryList gl){
 		sesfact.openSession().save(gl);
