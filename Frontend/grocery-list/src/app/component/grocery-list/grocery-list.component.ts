@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GroceryServiceService } from 'src/app/service/grocery-service.service';
+import { GroceryList } from 'src/app/model/grocery-list';
 
 @Component({
   selector: 'app-grocery-list',
@@ -8,6 +9,8 @@ import { GroceryServiceService } from 'src/app/service/grocery-service.service';
 })
 export class GroceryListComponent implements OnInit {
   glist = [];
+  id: number;
+  groceryList: GroceryList;
 
   constructor(private groceryService: GroceryServiceService) { }
 
@@ -31,8 +34,8 @@ export class GroceryListComponent implements OnInit {
     return this.groceryService.deleteGroceryList(id);
   }
 
-  addItemToList(){
-    return this.groceryService.addItemToList();
+  addItemToList(id){
+    return this.groceryService.addItemToList(id);
   }
 
 }

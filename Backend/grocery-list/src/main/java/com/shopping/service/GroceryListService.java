@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shopping.dao.DaoContract;
+import com.shopping.model.GroceryItem;
 import com.shopping.model.GroceryList;
 
 @Service
@@ -21,12 +22,16 @@ public class GroceryListService {
 		return dc.getAllLists();
 	}
 	
+	public List<GroceryItem> getAllGroceryItems(){
+		return dc.getAllItems();
+	}
+	
 	public GroceryList createGroceryList(GroceryList gl) {
 		dc.createGroceryList(gl);
 		return gl;
 	}
 	
-	public GroceryList addItemToList(GroceryList gl) {
+	public GroceryItem addItemToList(GroceryItem gl) {
 		dc.addItemToList(gl);
 		return gl;
 	}

@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.shopping.model.GroceryItem;
 import com.shopping.model.GroceryList;
 import com.shopping.util.HibernateUtil;
 
@@ -30,13 +31,18 @@ public class GroceryListDao implements DaoContract <GroceryList> {
 	}
 	
 	@Override
+	public List<GroceryItem> getAllItems(){
+		return sesfact.openSession().createQuery("from GroceryItem", GroceryItem.class).list();
+	}
+	
+	@Override
 	public void createGroceryList(GroceryList gl){
 		sesfact.openSession().save(gl);
 	}
 	
 	@Override
-	public void addItemToList(GroceryList gl) {
-		sesfact.getCurrentSession().update(gl);
+	public void addItemToList(GroceryItem gi) {
+		sesfact.getCurrentSession().update(gi);
 	}
 	
 	@Override

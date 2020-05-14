@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { GroceryList } from '../model/grocery-list';
+import { Groceries } from '../model/groceries';
 
 @Injectable({
   providedIn: 'root',
@@ -15,22 +16,26 @@ export class GroceryServiceService {
       .toPromise();
   }
 
+  public getGroceryItems(): Promise<Groceries> {
+    return this.http
+      .get<Groceries>('http://localhost:8080/Grocery/grocery-items.grocery')
+      .toPromise();
+  }
+
   createNewGroceryList(groceryList: GroceryList): Promise<GroceryList> {
     return this.http
       .post<GroceryList>(
-        'http://localhost:8080/Grocery/grocery-lists/items.grocery',
+        'http://localhost:8080/Grocery/grocery-lists.grocery',
         groceryList
       )
       .toPromise();
   }
 
-  addItemToList(groceryList: GroceryList, id: number): Promise<any> {
+  addItemToList(groceries: Groceries): Promise<any> {
     return this.http
-      .post<GroceryList>(
-        'http://localhost:8080/Grocery/grocery-lists/items' +
-          `${id}` +
-          '.grocery',
-        groceryList
+      .post<Groceries>(
+        'http://localhost:8080/Grocery/grocery-lists/items.grocery',
+        groceries
       )
       .toPromise();
   }
